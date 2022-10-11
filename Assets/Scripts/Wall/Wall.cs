@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
+    private WallSpawn wallSpawn;
+
     private Vector3 pos;
 
     public float speed;
@@ -12,6 +14,9 @@ public class Wall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject wallSpawnObj = GameObject.Find("WallSpawn");
+        wallSpawn = wallSpawnObj.GetComponent<WallSpawn>();
+
         pos = transform.position;
     }
 
@@ -26,6 +31,7 @@ public class Wall : MonoBehaviour
 
         if(hp <= 0)
         {
+            wallSpawn.isDestroy = true;
             Destroy(gameObject);
         }
     }
