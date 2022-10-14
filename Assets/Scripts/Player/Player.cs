@@ -21,13 +21,13 @@ public class Player : MonoBehaviour
     {
         pos = transform.position;
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             pos.x -= speed;
             transform.position = pos;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             pos.x += speed;
             transform.position = pos;

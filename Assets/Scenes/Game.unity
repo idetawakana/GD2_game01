@@ -202,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201429519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.017, y: 4.487, z: 0}
+  m_LocalPosition: {x: -0.017, y: 4.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -267,8 +267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d487e7138524b31418ba95603d076be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
+  hp: 50
   speed: 0.01
+  wallDamage: 10
+  enemyDamage: 15
+  bulletDamage: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 6443248711419432972, guid: 1d0c4aff3ee61c840a6ae2076720917a, type: 3}
   isDestroy: 0
-  startTimer: 3
+  startTimer: 10
 --- !u!4 &2104573645
 Transform:
   m_ObjectHideFlags: 0

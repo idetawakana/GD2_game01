@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     private float speed;
 
-    private float hp;
+    public float hp;
 
     public bool isNull;
 
@@ -24,8 +24,6 @@ public class Enemy : MonoBehaviour
         pos = transform.position;
 
         hp = 2;
-
-        //speed *= -1;
     }
 
     // Update is called once per frame
