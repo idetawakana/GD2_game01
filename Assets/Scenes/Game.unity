@@ -562,9 +562,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455a29cd96b34714f881edd7786eef56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 3821631935450000037, guid: 2c6ee6140f0f63d458cc25d091b6f5bd, type: 3}
   timer: 0
-  startTimer: 0
+  startTimer: 2
 --- !u!4 &1256501039
 Transform:
   m_ObjectHideFlags: 0

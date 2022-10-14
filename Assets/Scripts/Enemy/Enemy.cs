@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
         pos = transform.position;
 
         hp = 2;
+
+        //speed *= -1;
     }
 
     // Update is called once per frame
@@ -55,6 +57,8 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -63,6 +67,15 @@ public class Enemy : MonoBehaviour
         {
             hp--;
             Destroy(collision.gameObject);
+        }
+
+        if(collision.tag == "Wall")
+        {
+            if(hp <= 1)
+            {
+                wall.isPush = true;
+                Destroy(gameObject);
+            }
         }
     }
 }
