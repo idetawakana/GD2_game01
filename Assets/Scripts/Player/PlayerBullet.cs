@@ -18,8 +18,12 @@ public class PlayerBullet : MonoBehaviour
     {
         pos = transform.position;
 
-        //’e‚ª”ò‚ñ‚Å‚­ˆ—
         pos.y += speed;
         transform.position = pos;
+
+        if (pos.y >= 10)
+        {
+            Destroy(gameObject);
+        }
     }
 }
