@@ -33,7 +33,5 @@ public class EnemySpawn : MonoBehaviour
 
             timer = startTimer;
         }
-
-
     }
 }

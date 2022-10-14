@@ -25,7 +25,6 @@ public class Wall : MonoBehaviour
     {
         pos = transform.position;
 
-        //‚¾‚ñ‚¾‚ñ—‚¿‚Ä‚­‚éˆ—
         pos.y -= speed;
         transform.position = pos;
 

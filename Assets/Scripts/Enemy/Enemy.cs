@@ -61,19 +61,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag == "Bullet")
         {
-            if (wallObj != null)
-            {
-                if (wall.transform.position.y >= transform.position.y + 0.2)
-                {
-                    hp--;
-                    Destroy(collision.gameObject);
-                }
-            }
-            else
-            {
-                hp--;
-                Destroy(collision.gameObject);
-            }
+            hp--;
+            Destroy(collision.gameObject);
         }
     }
 }
