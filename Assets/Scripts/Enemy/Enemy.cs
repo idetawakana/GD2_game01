@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private GameObject wallObj;
+
+    private Wall wall;
+
     private Vector3 pos;
 
     public float startSpeed;
 
     private float speed;
 
-    public float hp;
+    private float hp;
+
+    public bool isNull;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +29,18 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hp == 2)
+        wallObj = GameObject.Find("Wall(Clone)");
+
+        if (wallObj != null)
+        {
+            wall = wallObj.GetComponent<Wall>();
+        }
+
+        if (hp == 2)
         {
             speed = startSpeed;
-        }else if(hp == 1)
+        }
+        else if (hp == 1)
         {
             speed = startSpeed * -1;
         }
@@ -37,7 +51,7 @@ public class Enemy : MonoBehaviour
 
         transform.position = pos;
 
-        if(pos.y >= 10)
+        if (pos.y >= 15 || pos.y <= -7)
         {
             Destroy(gameObject);
         }
@@ -47,8 +61,19 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag == "Bullet")
         {
-            hp--;
-            Destroy(collision.gameObject);
+            if (wallObj != null)
+            {
+                if (wall.transform.position.y >= transform.position.y + 0.2)
+                {
+                    hp--;
+                    Destroy(collision.gameObject);
+                }
+            }
+            else
+            {
+                hp--;
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

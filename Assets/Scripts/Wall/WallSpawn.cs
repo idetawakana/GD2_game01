@@ -10,13 +10,13 @@ public class WallSpawn : MonoBehaviour
 
     public bool isDestroy;
 
-    public float timer;
+    private float timer;
 
     public float startTimer;
     // Start is called before the first frame update
     void Start()
     {
-        //timer = startTimer;
+        timer = 0;
 
         pos = new Vector3(0, 3, 0);
     }
