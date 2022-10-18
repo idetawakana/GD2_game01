@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,12 +19,16 @@ public class Enemy : MonoBehaviour
 
     public bool isNull;
 
+    public int level;
+
     // Start is called before the first frame update
     void Start()
     {
         pos = transform.position;
 
         hp = 2;
+
+        level = 0;
     }
 
     // Update is called once per frame
