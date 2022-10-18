@@ -49,6 +49,11 @@ public class Player : MonoBehaviour
         {
             Instantiate(bullet, pos, Quaternion.identity);
         }
+
+        if(hp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -57,6 +62,11 @@ public class Player : MonoBehaviour
         {
             hp--;
             Destroy(collision.gameObject);
+        }
+
+        if(collision.tag == "Wall")
+        {
+            Destroy(gameObject);
         }
     }
 }
