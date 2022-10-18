@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.002
-  hp: 1
+  hp: 3
   isPush: 0
   startPushTimer: 0.5
   pushSpeed: 0.1

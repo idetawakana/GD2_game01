@@ -7,6 +7,10 @@ public class Player : MonoBehaviour
 {
     private Vector3 pos;
 
+    private Vector3 scale;
+
+    public float hp;
+
     public float speed;
 
     public GameObject bullet;
@@ -14,6 +18,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         pos = transform.position;
+
+        scale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -23,19 +29,34 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            pos.x -= speed;
-            transform.position = pos;
+            if (pos.x >= -3.75 + (scale.x / 2) + speed)
+            {
+                pos.x -= speed;
+                transform.position = pos;
+            }
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            pos.x += speed;
-            transform.position = pos;
+            if (pos.x <= 3.75 - (scale.x / 2) - speed)
+            {
+                pos.x += speed;
+                transform.position = pos;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bullet, pos, Quaternion.identity);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Enemy")
+        {
+            hp--;
+            Destroy(collision.gameObject);
         }
     }
 }

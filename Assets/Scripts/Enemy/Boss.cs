@@ -12,6 +12,8 @@ public class Boss : MonoBehaviour
 
     private Vector3 pos;
 
+    private Vector3 scale;
+
     public float hp;
 
     public float speed;
@@ -25,6 +27,7 @@ public class Boss : MonoBehaviour
         GameObject managerObj = GameObject.Find("GameManager");
         gameManager = managerObj.GetComponent<GameManager>();
         pos = transform.position;
+        scale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class Boss : MonoBehaviour
 
         transform.position = pos;
 
-        if(pos.x <= -3.25 || pos.x >= 3.25)
+        if(pos.x <= -3.75 + (scale.x / 2) || pos.x >= 3.75 - (scale.x / 2))
         {
             speed *= -1;
         }
