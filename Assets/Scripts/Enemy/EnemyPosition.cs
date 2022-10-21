@@ -67,6 +67,15 @@ public class EnemyPosition : MonoBehaviour
                 yield return new WaitForSeconds(3);
             }
 
+            if (csvDatas[0][0] == "f")
+            {
+                //30ƒtƒŒ[ƒ€‘Ò‚Â
+                for (var i = 0; i < 30; i++)
+                {
+                    yield return null;
+                }
+            }
+
             csvDatas.Clear();
         }
     }
