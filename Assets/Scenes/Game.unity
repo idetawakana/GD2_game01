@@ -267,10 +267,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d487e7138524b31418ba95603d076be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
+  hp: 100
   speed: 0.02
-  wallDamage: 10
-  enemyDamage: 15
+  wallDamage1: 5
+  wallDamage2: 10
+  wallDamage3: 15
+  enemyDamage1: 15
+  enemyDamage2: 20
+  enemyDamage3: 25
   bulletDamage: 1
 --- !u!1 &266576221
 GameObject:

@@ -77,10 +77,10 @@ public class Wall : MonoBehaviour
         }
     }
 
-    public int GetLevel()
-    {
-        return level;
-    }
+    //public int GetLevel()
+    //{
+    //    return level;
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -98,7 +98,7 @@ public class Wall : MonoBehaviour
             {
                 isPush = true;
                 Destroy(collision.gameObject);
-                level = enemy.GetLevel();
+                level = enemy.level;
             }
         }
     }
