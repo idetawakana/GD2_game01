@@ -6,6 +6,8 @@ public class Wall : MonoBehaviour
 {
     private WallSpawn wallSpawn;
 
+    private Enemy enemy;
+
     private Vector3 pos;
 
     public float speed;
@@ -18,7 +20,11 @@ public class Wall : MonoBehaviour
 
     public float startPushTimer;
 
+    public int level;
+
     public float pushSpeed;
+    public float pushSpeed2;
+    public float pushSpeed3;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +66,7 @@ public class Wall : MonoBehaviour
             {
                 isPush = false;
                 pushTimer = startPushTimer;
+                level = 0;
             }
         }
 
@@ -70,12 +77,29 @@ public class Wall : MonoBehaviour
         }
     }
 
+    public int GetLevel()
+    {
+        return level;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Bullet")
         {
             hp--;
             Destroy(collision.gameObject);
+        }
+
+        if(collision.tag == "Enemy")
+        {
+            enemy = collision.gameObject.GetComponent<Enemy>();
+
+            if (enemy.hp <= 1)
+            {
+                isPush = true;
+                Destroy(collision.gameObject);
+                level = enemy.GetLevel();
+            }
         }
     }
 }

@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
 
     public float startSpeed;
 
+    public float backSpeed;
+
     private float speed;
 
     public float hp;
@@ -20,6 +22,10 @@ public class Enemy : MonoBehaviour
     public bool isNull;
 
     public int level;
+
+    public float level1Pos;
+    public float level2Pos;
+    public float level3Pos;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +53,7 @@ public class Enemy : MonoBehaviour
         }
         else if (hp == 1)
         {
-            speed = startSpeed * -1;
+            speed = backSpeed;
         }
 
         pos = transform.position;
@@ -60,8 +66,11 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
-
+    public int GetLevel()
+    {
+        return level;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -70,15 +79,28 @@ public class Enemy : MonoBehaviour
         {
             hp--;
             Destroy(collision.gameObject);
-        }
 
-        if(collision.tag == "Wall")
-        {
-            if(hp <= 1)
+            if(transform.position.y > level1Pos)
             {
-                wall.isPush = true;
-                Destroy(gameObject);
+                level = 1;
+            }
+            else if(transform.position.y > level2Pos)
+            {
+                level = 2;
+            }
+            else if (transform.position.y > level3Pos)
+            {
+                level = 3;
             }
         }
+
+        //if(collision.tag == "Wall")
+        //{
+        //    if(hp <= 1)
+        //    {
+        //        wall.isPush = true;
+        //        Destroy(gameObject);
+        //    }
+        //}
     }
 }

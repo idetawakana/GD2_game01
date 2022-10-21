@@ -97,7 +97,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: -0.05
+  backSpeed: 0.15
+  hp: 0
   isNull: 0
+  level: 0
+  level1Pos: 0
+  level2Pos: -2
+  level3Pos: -5.5
 --- !u!58 &-5470781264543492455
 CircleCollider2D:
   m_ObjectHideFlags: 0
