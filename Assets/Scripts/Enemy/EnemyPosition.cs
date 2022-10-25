@@ -16,27 +16,17 @@ public class EnemyPosition : MonoBehaviour
 
     private int listCount;
 
+    private Vector3 pos;
+
+    public GameObject enemy;
+
     // Start is called before the first frame update
     void Start()
     {
         csvFile = Resources.Load("test") as TextAsset; // Resouces下のCSV読み込み
         reader = new StringReader(csvFile.text);
 
-        // , で分割しつつ一行ずつ読み込み
-        // リストに追加していく
-        //while (reader.Peek() != -1) // reader.Peaekが-1になるまで
-        //{        
-        //    //StartCoroutine(DelayCoroutine());
-
-        //    string line = reader.ReadLine(); // 一行ずつ読み込み
-        //    csvDatas.Add(line.Split(',')); // , 区切りでリストに追加
-        //}
-
         StartCoroutine(EnemyPos());
-
-        //listCount = csvDatas.Count;
-
-        //Debug.Log(listCount);
     }
 
     private IEnumerator EnemyPos()
@@ -46,31 +36,34 @@ public class EnemyPosition : MonoBehaviour
             line = reader.ReadLine(); // 一行ずつ読み込み
             csvDatas.Add(line.Split(',')); // , 区切りでリストに追加
 
-            if (csvDatas[0][0] == "a")
+            if (csvDatas[0][0] == "POP")
             {
-                Debug.Log(csvDatas[0][1]);
+                //Debug.Log(float.Parse(csvDatas[0][1]));
+                pos = new Vector3(float.Parse(csvDatas[0][1]), float.Parse(csvDatas[0][2]), 0);
+
+                Instantiate(enemy, pos, Quaternion.identity);
             }
 
             if (csvDatas[0][0] == "b")
             {
-                Debug.Log(csvDatas[0][2]);
+                Debug.Log(float.Parse(csvDatas[0][2]));
             }
 
             if (csvDatas[0][0] == "c")
             {
-                Debug.Log(csvDatas[0][3]);
+                Debug.Log(float.Parse(csvDatas[0][3]));
             }
 
             if (csvDatas[0][0] == "WAIT")
             {
-                // 3秒間待つ
-                yield return new WaitForSeconds(3);
+                // 待つ(秒)
+                yield return new WaitForSeconds(float.Parse(csvDatas[0][1]));
             }
 
             if (csvDatas[0][0] == "f")
             {
-                //30フレーム待つ
-                for (var i = 0; i < 30; i++)
+                //待つ(フレーム)
+                for (var i = 0; i < float.Parse(csvDatas[0][1]); i++)
                 {
                     yield return null;
                 }
