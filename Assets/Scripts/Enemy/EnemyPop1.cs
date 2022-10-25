@@ -5,7 +5,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Analytics;
 
-public class EnemyPop : MonoBehaviour
+public class EnemyPop1 : MonoBehaviour
 {
     TextAsset csvFile; // CSVファイル
     List<string[]> csvDatas = new List<string[]>(); // CSVの中身を入れるリスト;
@@ -23,7 +23,7 @@ public class EnemyPop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        csvFile = Resources.Load("enemypop") as TextAsset; // Resouces下のCSV読み込み
+        csvFile = Resources.Load("enemypop1") as TextAsset; // Resouces下のCSV読み込み
         reader = new StringReader(csvFile.text);
 
         StartCoroutine(EnemyPos());

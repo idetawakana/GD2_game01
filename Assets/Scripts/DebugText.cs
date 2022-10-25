@@ -14,6 +14,9 @@ public class DebugText : MonoBehaviour
     private Wall wall;
     private GameObject wallObj;
     public Text wallHp;
+
+    private GameManager gameManager;
+    public Text timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,9 @@ public class DebugText : MonoBehaviour
 
         GameObject bossObj = GameObject.Find("Boss");
         boss = bossObj.GetComponent<Boss>();
+
+        GameObject gameManagerObj = GameObject.Find("GameManager");
+        gameManager = gameManagerObj.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -33,8 +39,9 @@ public class DebugText : MonoBehaviour
             wall = wallObj.GetComponent<Wall>();
         }
 
+        timer.text = "timer  " + (int)gameManager.timer;
         playerHp.text = "playerHP  " + player.hp + "/5";
-        bossHp.text = "bossHP  " + boss.hp + "/50";
+        bossHp.text = "bossHP  " + boss.hp + "/100";
         if(wallObj != null)
         {
             wallHp.text = "wallHP  " + wall.hp + "/3";

@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
+    private GameManager gameManager;
+
     private Vector3 pos;
 
     private Vector3 scale;
@@ -17,6 +19,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject gameManagerObj = GameObject.Find("GameManager");
+        gameManager = gameManagerObj.GetComponent<GameManager>();
+
         pos = transform.position;
 
         scale = transform.localScale;
@@ -52,6 +57,7 @@ public class Player : MonoBehaviour
 
         if(hp <= 0)
         {
+            gameManager.isGameOver = true;
             Destroy(gameObject);
         }
     }
@@ -66,6 +72,7 @@ public class Player : MonoBehaviour
 
         if(collision.tag == "Wall")
         {
+            gameManager.isGameOver = true;
             Destroy(gameObject);
         }
     }
