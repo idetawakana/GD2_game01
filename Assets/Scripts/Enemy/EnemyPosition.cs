@@ -44,16 +44,6 @@ public class EnemyPosition : MonoBehaviour
                 Instantiate(enemy, pos, Quaternion.identity);
             }
 
-            if (csvDatas[0][0] == "b")
-            {
-                Debug.Log(float.Parse(csvDatas[0][2]));
-            }
-
-            if (csvDatas[0][0] == "c")
-            {
-                Debug.Log(float.Parse(csvDatas[0][3]));
-            }
-
             if (csvDatas[0][0] == "WAIT")
             {
                 // ‘Ò‚Â(•b)
