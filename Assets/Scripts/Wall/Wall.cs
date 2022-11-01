@@ -8,6 +8,10 @@ public class Wall : MonoBehaviour
 
     private Enemy enemy;
 
+    private Boss boss;
+
+    public Vector3 bossPos;
+
     private Vector3 pos;
 
     public float speed;
@@ -31,6 +35,9 @@ public class Wall : MonoBehaviour
         GameObject wallSpawnObj = GameObject.Find("WallSpawn");
         wallSpawn = wallSpawnObj.GetComponent<WallSpawn>();
 
+        GameObject bossObj = GameObject.Find("Boss");
+        boss = bossObj.GetComponent<Boss>();
+
         pos = transform.position;
 
         isPush = false;
@@ -47,14 +54,18 @@ public class Wall : MonoBehaviour
 
             pos.y -= speed;
             transform.position = pos;
+
+            bossPos = boss.transform.position;
         }
         else
         {
-            if(pushTimer > 0)
+            if (pushTimer > 0)
             {
                 pos = transform.position;
+                //bossPos = boss.transform.position;
 
-                if (pos.y - pushSpeed <= 4.2)
+                //‚Ç‚±‚Ü‚Å•Ç‚ð’µ‚Ë•Ô‚¹‚é‚æ‚¤‚É‚·‚é‚©‚Í‚±‚±‚Å•ÏX
+                if (pos.y <= bossPos.y - (transform.localScale.y / 1.5))
                 {
                     pos.y += pushSpeed;
                     transform.position = pos;
@@ -62,7 +73,7 @@ public class Wall : MonoBehaviour
 
                 pushTimer -= Time.deltaTime;
             }
-            else if(pushTimer <= 0)
+            else if (pushTimer <= 0)
             {
                 isPush = false;
                 pushTimer = startPushTimer;
@@ -70,7 +81,7 @@ public class Wall : MonoBehaviour
             }
         }
 
-        if(hp <= 0)
+        if (hp <= 0)
         {
             wallSpawn.isDestroy = true;
             Destroy(gameObject);
@@ -84,13 +95,13 @@ public class Wall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Bullet")
+        if (collision.tag == "Bullet")
         {
             hp--;
             Destroy(collision.gameObject);
         }
 
-        if(collision.tag == "Enemy")
+        if (collision.tag == "Enemy")
         {
             enemy = collision.gameObject.GetComponent<Enemy>();
 

@@ -9,6 +9,7 @@ public class Boss : MonoBehaviour
     private Enemy enemy;
 
     private Wall wall;
+    private GameObject wallObj;
 
     private Vector3 pos;
 
@@ -27,6 +28,10 @@ public class Boss : MonoBehaviour
     public float enemyDamage3;
 
     public float bulletDamage;
+
+    public bool isCrush;
+
+    public Vector3 beforeWallPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +39,8 @@ public class Boss : MonoBehaviour
         gameManager = managerObj.GetComponent<GameManager>();
         pos = transform.position;
         scale = transform.localScale;
+
+        isCrush = false;
     }
 
     // Update is called once per frame
@@ -44,6 +51,19 @@ public class Boss : MonoBehaviour
         pos.x += speed;
 
         transform.position = pos;
+
+        if(isCrush == true)
+        {
+            scale = ScaleChange(wall);
+            transform.localScale = scale;
+            pos.y = 5 - (scale.y / 2);
+            transform.position = pos;
+
+            if(wall.isPush == false)
+            {
+                isCrush = false;
+            }
+        }
 
         if (pos.x <= -3.75 + (scale.x / 2) || pos.x >= 3.75 - (scale.x / 2))
         {
@@ -60,6 +80,16 @@ public class Boss : MonoBehaviour
     private float Damage(float damage)
     {
         return damage;
+    }
+
+    private Vector3 ScaleChange(Wall wall)
+    {
+        Vector3 scale = transform.localScale;
+        Vector3 wallPos = wall.transform.position;
+        float addScaleY = (wallPos.y + wall.transform.localScale.y / 2) - (pos.y - scale.y / 2);
+        scale.y -= addScaleY;
+        scale.x = 1 / scale.y;
+        return scale;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -93,6 +123,20 @@ public class Boss : MonoBehaviour
                 hp -= wallDamage3;
                 Debug.Log("wall3");
             }
+
+
+            wallObj = collision.gameObject;
+            wall = wallObj.GetComponent<Wall>();
+
+            if (wall.isPush == true)
+            {
+                isCrush = true;
+            }
+
+            //scale = ScaleChange(collision);
+            //transform.localScale = scale;
+            //pos.y = 5 - (scale.y / 2);
+            //transform.position = pos;
         }
 
         if (collision.tag == "Enemy")
@@ -123,4 +167,16 @@ public class Boss : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Wall")
+        {
+            //scale = ScaleChange(collision);
+            //transform.localScale = scale;
+            //pos.y = 5 - (scale.y / 2);
+            //transform.position = pos;
+        }
+    }
+
 }
