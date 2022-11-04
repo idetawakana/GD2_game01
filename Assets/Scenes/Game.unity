@@ -409,9 +409,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 15
   speed: 0.05
-  wallDamage1: 5
-  wallDamage2: 10
-  wallDamage3: 15
+  wallDamage1: 2
+  wallDamage2: 2
+  wallDamage3: 2
   enemyDamage1: 15
   enemyDamage2: 20
   enemyDamage3: 25

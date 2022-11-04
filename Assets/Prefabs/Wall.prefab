@@ -101,11 +101,16 @@ MonoBehaviour:
   speed: 0.005
   hp: 3
   isPush: 0
+  pushTimer1: 0.1
+  pushTimer2: 0.2
+  pushTimer3: 0.3
   startPushTimer: 0.5
   level: 0
+  getLevel: 0
   pushSpeed: 0.1
-  pushSpeed2: 0
-  pushSpeed3: 0
+  pushSpeed1: 0.1
+  pushSpeed2: 0.1
+  pushSpeed3: 0.1
   pushNum: 1.5
 --- !u!61 &6443248711419432976
 BoxCollider2D:

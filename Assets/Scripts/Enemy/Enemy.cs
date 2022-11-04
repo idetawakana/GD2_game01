@@ -9,8 +9,9 @@ public class Enemy : MonoBehaviour
     private Vector3 enemyMarkPos;
 
     private GameObject wallObj;
-
     private Wall wall;
+
+    private PlayerBullet bullet;
 
     private Vector3 pos;
 
@@ -83,20 +84,25 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag == "Bullet")
         {
-            hp--;
-            Destroy(collision.gameObject);
+            bullet = collision.gameObject.GetComponent<PlayerBullet>();
 
-            if(transform.position.y > level1Pos)
+            if (bullet.transform.position.y < 5 - (bullet.transform.localScale.y / 2))
             {
-                level = 1;
-            }
-            else if(transform.position.y > level2Pos)
-            {
-                level = 2;
-            }
-            else if (transform.position.y > level3Pos)
-            {
-                level = 3;
+                hp--;
+                Destroy(collision.gameObject);
+
+                if (transform.position.y > level1Pos)
+                {
+                    level = 1;
+                }
+                else if (transform.position.y > level2Pos)
+                {
+                    level = 2;
+                }
+                else if (transform.position.y > level3Pos)
+                {
+                    level = 3;
+                }
             }
         }
 

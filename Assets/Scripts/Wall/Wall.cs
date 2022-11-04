@@ -21,12 +21,18 @@ public class Wall : MonoBehaviour
     public bool isPush;
 
     private float pushTimer;
+    public float pushTimer1;
+    public float pushTimer2;
+    public float pushTimer3;
 
     public float startPushTimer;
 
     public int level;
 
+    public bool getLevel;
+
     public float pushSpeed;
+    public float pushSpeed1;
     public float pushSpeed2;
     public float pushSpeed3;
 
@@ -45,6 +51,8 @@ public class Wall : MonoBehaviour
         isPush = false;
 
         pushTimer = startPushTimer;
+
+        getLevel = false;
     }
 
     // Update is called once per frame
@@ -61,6 +69,26 @@ public class Wall : MonoBehaviour
         }
         else
         {
+            if (getLevel == false)
+            {
+                if (level == 1)
+                {
+                    pushTimer = pushTimer1;
+                    pushSpeed = pushSpeed1;
+                }
+                else if (level == 2)
+                {
+                    pushTimer = pushTimer2;
+                    pushSpeed = pushSpeed2;
+                }
+                else if (level == 3)
+                {
+                    pushTimer = pushTimer3;
+                    pushSpeed = pushSpeed3;
+                }
+                getLevel = true;
+            }
+
             if (pushTimer > 0)
             {
                 pos = transform.position;
