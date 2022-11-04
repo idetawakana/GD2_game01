@@ -30,7 +30,7 @@ public class Wall : MonoBehaviour
     public float pushSpeed2;
     public float pushSpeed3;
 
-    public float crushNum;
+    public float pushNum;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,10 +64,9 @@ public class Wall : MonoBehaviour
             if (pushTimer > 0)
             {
                 pos = transform.position;
-                //bossPos = boss.transform.position;
 
                 //Ç«Ç±Ç‹Ç≈ï«ÇíµÇÀï‘ÇπÇÈÇÊÇ§Ç…Ç∑ÇÈÇ©ÇÕÇ±Ç±Ç≈ïœçX
-                if (pos.y <= bossPos.y - (transform.localScale.y / crushNum))
+                if (pos.y <= bossPos.y - (transform.localScale.y / pushNum))
                 {
                     pos.y += pushSpeed;
                     transform.position = pos;

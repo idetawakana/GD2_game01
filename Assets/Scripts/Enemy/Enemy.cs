@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject enemyMark;
+    private Vector3 enemyMarkPos;
+
     private GameObject wallObj;
 
     private Wall wall;
@@ -35,6 +38,9 @@ public class Enemy : MonoBehaviour
         hp = 2;
 
         level = 0;
+
+        enemyMarkPos = new Vector3(transform.position.x, 5 - (transform.localScale.y / 2), transform.position.z);
+        Instantiate(enemyMark, enemyMarkPos, Quaternion.identity);
     }
 
     // Update is called once per frame

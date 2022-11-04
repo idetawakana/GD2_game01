@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    private Vector3 pos;
+    private Vector3 enemyPos;
 
     public GameObject enemy;
+
+    public GameObject enemy_;
+
+    private Vector3 enemy_Pos;
 
     public float timer;
 
@@ -27,9 +31,13 @@ public class EnemySpawn : MonoBehaviour
 
         if (timer <= 0)
         {
-            pos = new Vector3(Random.Range(-3.25f, 3.25f), 10, 0);
+            enemyPos = new Vector3(Random.Range(-3.25f, 3.25f), 10, 0);
 
-            Instantiate(enemy, pos, Quaternion.identity);
+            //enemy_Pos = new Vector3()
+
+            Instantiate(enemy, enemyPos, Quaternion.identity);
+
+            //Instantiate(enemy_,)
 
             timer = startTimer;
         }

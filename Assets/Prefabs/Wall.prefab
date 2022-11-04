@@ -106,7 +106,7 @@ MonoBehaviour:
   pushSpeed: 0.1
   pushSpeed2: 0
   pushSpeed3: 0
-  crushNum: 1.5
+  pushNum: 1.5
 --- !u!61 &6443248711419432976
 BoxCollider2D:
   m_ObjectHideFlags: 0
