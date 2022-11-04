@@ -187,11 +187,6 @@ public class Boss : MonoBehaviour
             {
                 isCrush = true;
             }
-
-            //scale = ScaleChange(collision);
-            //transform.localScale = scale;
-            //pos.y = 5 - (scale.y / 2);
-            //transform.position = pos;
         }
 
         if (collision.tag == "Enemy")
@@ -222,16 +217,4 @@ public class Boss : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Wall")
-        {
-            //scale = ScaleChange(collision);
-            //transform.localScale = scale;
-            //pos.y = 5 - (scale.y / 2);
-            //transform.position = pos;
-        }
-    }
-
 }
