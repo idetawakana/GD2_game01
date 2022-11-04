@@ -97,11 +97,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a482fbdedfc484a8355fd4749e2cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossPos: {x: 0, y: 0, z: 0}
   speed: 0.005
   hp: 3
   isPush: 0
   startPushTimer: 0.5
+  level: 0
   pushSpeed: 0.1
+  pushSpeed2: 0
+  pushSpeed3: 0
+  crushNum: 1.5
 --- !u!61 &6443248711419432976
 BoxCollider2D:
   m_ObjectHideFlags: 0

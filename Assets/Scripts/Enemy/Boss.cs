@@ -10,10 +10,14 @@ public class Boss : MonoBehaviour
 
     private Wall wall;
     private GameObject wallObj;
+    private Vector3 wallPos;
+    private Vector3 wallScale;
 
     private Vector3 pos;
 
     private Vector3 scale;
+
+    private Vector3 startScale;
 
     public float hp;
 
@@ -31,14 +35,18 @@ public class Boss : MonoBehaviour
 
     public bool isCrush;
 
-    public Vector3 beforeWallPos;
+    public bool isReturn;
+
+    public float addScaleY;
     // Start is called before the first frame update
     void Start()
     {
         GameObject managerObj = GameObject.Find("GameManager");
         gameManager = managerObj.GetComponent<GameManager>();
+
         pos = transform.position;
         scale = transform.localScale;
+        startScale = transform.localScale;
 
         isCrush = false;
     }
@@ -52,16 +60,63 @@ public class Boss : MonoBehaviour
 
         transform.position = pos;
 
-        if(isCrush == true)
+        if (isCrush == true)
         {
-            scale = ScaleChange(wall);
+            if (wall != null)
+            {
+                scale = ScaleChange(wall);
+                transform.localScale = scale;
+                pos.y = 5 - (scale.y / 2);
+                transform.position = pos;
+            }
+
+            if (wall.isPush == false)
+            {
+                isCrush = false;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            isReturn = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.B))
+        {
+            //isReturn = false;
+        }
+
+        if(isReturn == true)
+        {
+            if (scale.y <= 1 - addScaleY)
+            {
+                scale.y += addScaleY;
+                scale.x = 1 / scale.y;
+            }
+            else
+            {
+                scale.y = 1.0f;
+                scale.x = 1.0f;
+                isReturn = false;
+            }
+
             transform.localScale = scale;
             pos.y = 5 - (scale.y / 2);
             transform.position = pos;
 
-            if(wall.isPush == false)
+            if(isCrush == false)
             {
-                isCrush = false;
+                if(wall != null)
+                {
+                    wallPos = wall.transform.position;
+                    wallScale = wall.transform.localScale;
+
+                    if (pos.y - (scale.y / 2) < wallPos.y + (wallScale.y / 2))
+                    {
+                        wallPos.y = pos.y - (scale.y / 2) - (wallScale.y / 2);
+                        wall.transform.position = wallPos;
+                    }
+                }
             }
         }
 
