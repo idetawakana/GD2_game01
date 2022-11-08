@@ -120,6 +120,18 @@ public class Boss : MonoBehaviour
             }
         }
 
+        if(pos.x <= -3.75 + (scale.x / 2))
+        {
+            pos.x = -3.75f + (scale.x / 2);
+            transform.position = pos;
+        }
+
+        if(pos.x >= 3.75 - (scale.x / 2))
+        {
+            pos.x = 3.75f - (scale.x / 2);
+            transform.position = pos;
+        }
+
         if (pos.x <= -3.75 + (scale.x / 2) || pos.x >= 3.75 - (scale.x / 2))
         {
             speed *= -1;
