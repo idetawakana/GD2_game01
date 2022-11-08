@@ -13,9 +13,9 @@ public class Boss : MonoBehaviour
     private Vector3 wallPos;
     private Vector3 wallScale;
 
-    private Vector3 pos;
+    public Vector3 pos;
 
-    private Vector3 scale;
+    public Vector3 scale;
 
     private Vector3 startScale;
 
@@ -132,7 +132,7 @@ public class Boss : MonoBehaviour
             transform.position = pos;
         }
 
-        if (pos.x <= -3.75 + (scale.x / 2) || pos.x >= 3.75 - (scale.x / 2))
+        if (pos.x <= -3.75 + (scale.x / 2) + 0.01 || pos.x >= 3.75 - (scale.x / 2) - 0.01)
         {
             speed *= -1;
         }
