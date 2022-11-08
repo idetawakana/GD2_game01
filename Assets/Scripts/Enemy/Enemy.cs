@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
 
     private Vector3 pos;
 
+    public Vector3 backRota;
+
     public float startSpeed;
 
     public float backSpeed;
@@ -61,6 +63,7 @@ public class Enemy : MonoBehaviour
         else if (hp == 1)
         {
             speed = backSpeed;
+            transform.eulerAngles = backRota;
         }
 
         pos = transform.position;

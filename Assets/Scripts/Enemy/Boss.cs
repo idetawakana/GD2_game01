@@ -88,7 +88,7 @@ public class Boss : MonoBehaviour
 
         if(isReturn == true)
         {
-            if (scale.y <= 1.28 - addScaleY)
+            if (scale.y <= 0.96 - addScaleY)
             {
                 scale.y += addScaleY;
                 scale.x = 1.152f / scale.y;
