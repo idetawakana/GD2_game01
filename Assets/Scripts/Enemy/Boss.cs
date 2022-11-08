@@ -88,15 +88,15 @@ public class Boss : MonoBehaviour
 
         if(isReturn == true)
         {
-            if (scale.y <= 1 - addScaleY)
+            if (scale.y <= 1.28 - addScaleY)
             {
                 scale.y += addScaleY;
-                scale.x = 1 / scale.y;
+                scale.x = 1.152f / scale.y;
             }
             else
             {
-                scale.y = 1.0f;
-                scale.x = 1.0f;
+                scale.y = 0.96f;
+                scale.x = 1.2f;
                 isReturn = false;
             }
 
@@ -155,7 +155,7 @@ public class Boss : MonoBehaviour
         Vector3 wallPos = wall.transform.position;
         float addScaleY = (wallPos.y + wall.transform.localScale.y / 2) - (pos.y - scale.y / 2);
         scale.y -= addScaleY;
-        scale.x = 1 / scale.y;
+        scale.x = 1.152f / scale.y;
         return scale;
     }
 
