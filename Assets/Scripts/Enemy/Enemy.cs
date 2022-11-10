@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
 
         level = 0;
 
-        enemyMarkPos = new Vector3(transform.position.x, 5 - (transform.localScale.y / 2), transform.position.z);
+        enemyMarkPos = new Vector3(transform.position.x, 4.5f - (transform.localScale.y / 2), transform.position.z);
         Instantiate(enemyMark, enemyMarkPos, Quaternion.identity);
     }
 
@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour
         {
             bullet = collision.gameObject.GetComponent<PlayerBullet>();
 
-            if (bullet.transform.position.y < 5 - (bullet.transform.localScale.y / 2))
+            if (bullet.transform.position.y < 4.5f - (bullet.transform.localScale.y / 2))
             {
                 hp--;
                 Destroy(collision.gameObject);

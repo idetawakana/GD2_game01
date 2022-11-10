@@ -19,6 +19,7 @@ public class Boss : MonoBehaviour
 
     private Vector3 startScale;
 
+    public float maxHp;
     public float hp;
 
     public float speed;
@@ -48,6 +49,8 @@ public class Boss : MonoBehaviour
         scale = transform.localScale;
         startScale = transform.localScale;
 
+        hp = maxHp;
+
         isCrush = false;
     }
 
@@ -66,7 +69,7 @@ public class Boss : MonoBehaviour
             {
                 scale = ScaleChange(wall);
                 transform.localScale = scale;
-                pos.y = 5 - (scale.y / 2);
+                pos.y = 4.5f - (scale.y / 2);
                 transform.position = pos;
             }
 
@@ -101,7 +104,7 @@ public class Boss : MonoBehaviour
             }
 
             transform.localScale = scale;
-            pos.y = 5 - (scale.y / 2);
+            pos.y = 4.5f - (scale.y / 2);
             transform.position = pos;
 
             if(isCrush == false)

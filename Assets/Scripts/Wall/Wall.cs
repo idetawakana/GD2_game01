@@ -44,7 +44,10 @@ public class Wall : MonoBehaviour
         wallSpawn = wallSpawnObj.GetComponent<WallSpawn>();
 
         GameObject bossObj = GameObject.Find("Boss");
-        boss = bossObj.GetComponent<Boss>();
+        if (bossObj != null)
+        {
+            boss = bossObj.GetComponent<Boss>();
+        }
 
         pos = transform.position;
 
