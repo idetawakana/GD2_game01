@@ -9,6 +9,9 @@ public class Wall : MonoBehaviour
     private Enemy enemy;
 
     private Boss boss;
+    private GameObject bossObj;
+
+    private GameManager gameManager;
 
     public Vector3 bossPos;
 
@@ -43,7 +46,13 @@ public class Wall : MonoBehaviour
         GameObject wallSpawnObj = GameObject.Find("WallSpawn");
         wallSpawn = wallSpawnObj.GetComponent<WallSpawn>();
 
-        GameObject bossObj = GameObject.Find("Boss");
+        GameObject gameManagerObj = GameObject.Find("GameManager");
+        if (gameManagerObj != null)
+        {
+            gameManager = gameManagerObj.GetComponent<GameManager>();
+        }
+
+        bossObj = GameObject.Find("Boss");
         if (bossObj != null)
         {
             boss = bossObj.GetComponent<Boss>();
@@ -68,7 +77,10 @@ public class Wall : MonoBehaviour
             pos.y -= speed;
             transform.position = pos;
 
-            bossPos = boss.transform.position;
+            if (bossObj != null)
+            {
+                bossPos = boss.transform.position;
+            }
         }
         else
         {

@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
 
     private PlayerBullet bullet;
 
+    private GameManager gameManager;
+
     private Vector3 pos;
 
     public Vector3 backRota;
@@ -38,6 +40,12 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject gameManagerObj = GameObject.Find("GameManager");
+        if (gameManagerObj != null)
+        {
+            gameManager = gameManagerObj.GetComponent<GameManager>();
+        }
+
         pos = transform.position;
 
         hp = 2;
@@ -50,7 +58,7 @@ public class Enemy : MonoBehaviour
             Instantiate(enemyMark, enemyMarkPos, Quaternion.identity);
         }
 
-        if(isTitle == true)
+        if (isTitle == true)
         {
             startSpeed = 0;
         }

@@ -33,35 +33,38 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pos = transform.position;
-
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (gameManager.isClear == false && gameManager.isGameOver == false)
         {
-            if (pos.x >= -3.75 + (scale.x / 2) + speed)
+            pos = transform.position;
+
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                pos.x -= speed;
-                transform.position = pos;
+                if (pos.x >= -3.75 + (scale.x / 2) + speed)
+                {
+                    pos.x -= speed;
+                    transform.position = pos;
+                }
             }
-        }
 
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            if (pos.x <= 3.75 - (scale.x / 2) - speed)
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                pos.x += speed;
-                transform.position = pos;
+                if (pos.x <= 3.75 - (scale.x / 2) - speed)
+                {
+                    pos.x += speed;
+                    transform.position = pos;
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(bullet, pos, Quaternion.identity);
-        }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Instantiate(bullet, pos, Quaternion.identity);
+            }
 
-        if(hp <= 0)
-        {
-            gameManager.isGameOver = true;
-            Destroy(gameObject);
+            if (hp <= 0)
+            {
+                gameManager.isGameOver = true;
+                Destroy(gameObject);
+            }
         }
     }
 

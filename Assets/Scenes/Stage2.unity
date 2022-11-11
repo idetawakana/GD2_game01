@@ -1093,6 +1093,9 @@ MonoBehaviour:
   isClear: 0
   isGameOver: 0
   timer: 30
+  finishTimer: 3
+  nextScene: Stage3
+  sceneNum: 0
 --- !u!4 &1763441067
 Transform:
   m_ObjectHideFlags: 0

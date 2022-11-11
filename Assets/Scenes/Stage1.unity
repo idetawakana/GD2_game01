@@ -281,7 +281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201429519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.048, y: 4.02, z: 0}
+  m_LocalPosition: {x: 0, y: 4.02, z: 0}
   m_LocalScale: {x: 1.2, y: 0.96, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -810,6 +810,9 @@ MonoBehaviour:
   isClear: 0
   isGameOver: 0
   timer: 30
+  finishTimer: 3
+  nextScene: Stage2
+  sceneNum: 0
 --- !u!4 &881937303
 Transform:
   m_ObjectHideFlags: 0
