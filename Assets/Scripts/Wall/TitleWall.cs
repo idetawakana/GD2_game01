@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
+using UnityEditor;
 using UnityEngine;
 
 public class TitleWall : MonoBehaviour

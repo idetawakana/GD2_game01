@@ -175,7 +175,10 @@ public class Boss : MonoBehaviour
     {
         if (collision.tag == "Bullet")
         {
-            hp -= bulletDamage;
+            if (gameManager.isGameOver == false)
+            {
+                hp -= bulletDamage;
+            }
             Destroy(collision.gameObject);
             gameManager.PlaySEAttack();
 
