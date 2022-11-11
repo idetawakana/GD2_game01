@@ -142,6 +142,7 @@ public class Boss : MonoBehaviour
 
         if (hp <= 0)
         {
+            gameManager.PlaySEClear();
             gameManager.isClear = true;
             Destroy(gameObject);
         }
@@ -156,9 +157,17 @@ public class Boss : MonoBehaviour
     {
         Vector3 scale = transform.localScale;
         Vector3 wallPos = wall.transform.position;
-        float addScaleY = (wallPos.y + wall.transform.localScale.y / 2) - (pos.y - scale.y / 2);
-        scale.y -= addScaleY;
-        scale.x = 1.152f / scale.y;
+        if (scale.y > 0.3f)
+        {
+            float addScaleY = (wallPos.y + wall.transform.localScale.y / 2) - (pos.y - scale.y / 2);
+            scale.y -= addScaleY;
+            scale.x = 1.152f / scale.y;
+        }
+        else
+        {
+            scale.y = 0.3f;
+            scale.x = 1.152f / scale.y;
+        }
         return scale;
     }
 
@@ -168,6 +177,7 @@ public class Boss : MonoBehaviour
         {
             hp -= bulletDamage;
             Destroy(collision.gameObject);
+            gameManager.PlaySEAttack();
 
             Debug.Log("bullet");
         }
@@ -175,6 +185,7 @@ public class Boss : MonoBehaviour
         if (collision.tag == "Wall")
         {
             wall = collision.gameObject.GetComponent<Wall>();
+            gameManager.PlaySEAttack();
 
             if (wall.level == 1)
             {
@@ -210,6 +221,7 @@ public class Boss : MonoBehaviour
 
             if (enemy.hp <= 1)
             {
+                gameManager.PlaySEAttack();
                 if (enemy.level == 1)
                 {
                     hp -= enemyDamage1;

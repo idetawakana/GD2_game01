@@ -142,6 +142,7 @@ public class Wall : MonoBehaviour
         if (collision.tag == "Bullet")
         {
             hp--;
+            gameManager.PlaySEAttack();
             Destroy(collision.gameObject);
         }
 
@@ -154,6 +155,7 @@ public class Wall : MonoBehaviour
                 isPush = true;
                 Destroy(collision.gameObject);
                 level = enemy.level;
+                gameManager.PlaySEAttack();
             }
         }
     }

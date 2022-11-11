@@ -7,6 +7,8 @@ public class TitlePlayer : MonoBehaviour
 {
     private GameManager gameManager;
 
+    private TitleManager titleManager;
+
     private Vector3 pos;
 
     private Vector3 scale;
@@ -19,6 +21,9 @@ public class TitlePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject titleManagerObj = GameObject.Find("TitleManager");
+        titleManager = titleManagerObj.GetComponent<TitleManager>();
+
         pos = transform.position;
 
         scale = transform.localScale;
@@ -50,6 +55,7 @@ public class TitlePlayer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bullet, pos, Quaternion.identity);
+            titleManager.PlaySEBullet();
         }
 
         if (hp <= 0)

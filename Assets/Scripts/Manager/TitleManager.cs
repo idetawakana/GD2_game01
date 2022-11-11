@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class TitleManager : MonoBehaviour
 {
     public string nextScene;
+
+    public AudioSource bulletSE;
+    public AudioSource attackSE;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,16 @@ public class TitleManager : MonoBehaviour
     public void ChangeScene(string nextScene)
     {
         SceneManager.LoadScene(nextScene);
+    }
+
+    public void PlaySEBullet()
+    {
+        bulletSE.Play();
+    }
+
+    public void PlaySEAttack()
+    {
+        attackSE.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

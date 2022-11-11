@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TitleText : MonoBehaviour
 {
-    private Wall wall;
+    private TitleWall wall;
     public Vector3 pos;
 
     public float speed;
@@ -13,7 +13,7 @@ public class TitleText : MonoBehaviour
     void Start()
     {
         GameObject wallObj = GameObject.Find("Wall");
-        wall = wallObj.GetComponent<Wall>();
+        wall = wallObj.GetComponent<TitleWall>();
     }
 
     // Update is called once per frame

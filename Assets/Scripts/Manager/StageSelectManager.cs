@@ -12,6 +12,8 @@ public class StageSelectManager : MonoBehaviour
 
     public int stage;
 
+    public AudioSource bulletSE;
+    public AudioSource attackSE;
     //public Text stageText;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,7 @@ public class StageSelectManager : MonoBehaviour
             {
                 stage++;
             }
+            PlaySEBullet();
         }
 
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -44,11 +47,13 @@ public class StageSelectManager : MonoBehaviour
             {
                 stage--;
             }
+            PlaySEBullet();
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(stage == 1)
+            PlaySEAttack();
+            if (stage == 1)
             {
                 ChangeScene(stage1);
             }
@@ -65,6 +70,15 @@ public class StageSelectManager : MonoBehaviour
         //stageText.text = "nextstage " + stage;
     }
 
+    public void PlaySEBullet()
+    {
+        bulletSE.Play();
+    }
+
+    public void PlaySEAttack()
+    {
+        attackSE.Play();
+    }
     public void ChangeScene(string nextScene)
     {
         SceneManager.LoadScene(nextScene);

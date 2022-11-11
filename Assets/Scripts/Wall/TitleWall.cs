@@ -7,9 +7,11 @@ public class TitleWall : MonoBehaviour
 {
     private WallSpawn wallSpawn;
 
-    private Enemy enemy;
+    private TitleEnemy enemy;
 
     private Boss boss;
+
+    private TitleManager titleManager;
 
     public Vector3 bossPos;
 
@@ -43,6 +45,9 @@ public class TitleWall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject titleManagerObj = GameObject.Find("TitleManager");
+        titleManager = titleManagerObj.GetComponent<TitleManager>();
+
         pos = transform.position;
 
         isPush = false;
@@ -116,13 +121,14 @@ public class TitleWall : MonoBehaviour
 
         if (collision.tag == "Enemy")
         {
-            enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy = collision.gameObject.GetComponent<TitleEnemy>();
 
             if (enemy.hp <= 1)
             {
                 isPush = true;
                 Destroy(collision.gameObject);
                 level = enemy.level;
+                titleManager.PlaySEAttack();
             }
         }
     }

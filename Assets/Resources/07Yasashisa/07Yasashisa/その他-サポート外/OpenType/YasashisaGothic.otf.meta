@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3ccad9571011eb04ebaf5c20350e02f1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - 07YasashisaGothic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a19c4806850f30d4e8b9c32586f97f2f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Instantiate(bullet, pos, Quaternion.identity);
+                gameManager.PlaySEBullet();
             }
 
             if (hp <= 0)
@@ -74,11 +75,13 @@ public class Player : MonoBehaviour
         {
             hp--;
             Destroy(collision.gameObject);
+            gameManager.PlaySEAttack();
         }
 
         if(collision.tag == "Wall")
         {
             gameManager.isGameOver = true;
+            gameManager.PlaySEAttack();
             Destroy(gameObject);
         }
     }
