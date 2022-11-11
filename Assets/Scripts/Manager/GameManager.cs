@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public bool isGameOver;
 
     public float timer;
+
+    public float finishTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,9 @@ public class GameManager : MonoBehaviour
             {
                 isGameOver = true;
             }
+        }else if(isClear == true)
+        {
+           // if()
         }
     }
     public void SceneReset()

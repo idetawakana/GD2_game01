@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class TitleEnemy : MonoBehaviour
 {
     public GameObject enemyMark;
     private Vector3 enemyMarkPos;
@@ -50,10 +50,7 @@ public class Enemy : MonoBehaviour
             Instantiate(enemyMark, enemyMarkPos, Quaternion.identity);
         }
 
-        if(isTitle == true)
-        {
-            startSpeed = 0;
-        }
+        startSpeed = 0;
     }
 
     // Update is called once per frame

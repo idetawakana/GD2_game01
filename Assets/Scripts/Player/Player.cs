@@ -20,7 +20,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         GameObject gameManagerObj = GameObject.Find("GameManager");
-        gameManager = gameManagerObj.GetComponent<GameManager>();
+        if (gameManagerObj != null)
+        {
+            gameManager = gameManagerObj.GetComponent<GameManager>();
+        }
 
         pos = transform.position;
 

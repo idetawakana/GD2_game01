@@ -538,9 +538,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 1, b: 1, a: 0}
-  maxColor: {r: 0.3252962, g: 0.6509434, b: 0.22353148, a: 1}
-  halfColor: {r: 0.6981132, g: 0.6981132, b: 0.16069774, a: 1}
-  fewColor: {r: 0.6698113, g: 0.3230291, b: 0.16682091, a: 1}
+  maxColor: {r: 0.23471929, g: 0.49056602, b: 0.15457456, a: 1}
+  halfColor: {r: 0.5754717, g: 0.5754717, b: 0.11075113, a: 1}
+  fewColor: {r: 0.6037736, g: 0.26871663, b: 0.121893905, a: 1}
   rawImage: {fileID: 0}
 --- !u!114 &436676813
 MonoBehaviour:

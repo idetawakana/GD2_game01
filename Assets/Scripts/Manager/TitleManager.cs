@@ -15,14 +15,22 @@ public class TitleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ChangeScene(nextScene);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    ChangeScene(nextScene);
+        //}
     }
 
     public void ChangeScene(string nextScene)
     {
         SceneManager.LoadScene(nextScene);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Wall")
+        {
+            ChangeScene(nextScene);
+        }
     }
 }

@@ -12,7 +12,7 @@ public class StageSelectManager : MonoBehaviour
 
     public int stage;
 
-    public Text stageText;
+    //public Text stageText;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class StageSelectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             if(stage == 3)
             {
@@ -34,7 +34,7 @@ public class StageSelectManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (stage == 1)
             {
@@ -62,7 +62,7 @@ public class StageSelectManager : MonoBehaviour
             }
         }
 
-        stageText.text = "nextstage " + stage;
+        //stageText.text = "nextstage " + stage;
     }
 
     public void ChangeScene(string nextScene)
