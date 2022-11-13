@@ -79,49 +79,49 @@ public class Boss : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            isReturn = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    isReturn = true;
+        //}
 
-        if (Input.GetKeyUp(KeyCode.B))
-        {
-            //isReturn = false;
-        }
+        //if (Input.GetKeyUp(KeyCode.B))
+        //{
+        //    //isReturn = false;
+        //}
 
-        if(isReturn == true)
-        {
-            if (scale.y <= 0.96 - addScaleY)
-            {
-                scale.y += addScaleY;
-                scale.x = 1.152f / scale.y;
-            }
-            else
-            {
-                scale.y = 0.96f;
-                scale.x = 1.2f;
-                isReturn = false;
-            }
+        //if(isReturn == true)
+        //{
+        //    if (scale.y <= 0.96 - addScaleY)
+        //    {
+        //        scale.y += addScaleY;
+        //        scale.x = 1.152f / scale.y;
+        //    }
+        //    else
+        //    {
+        //        scale.y = 0.96f;
+        //        scale.x = 1.2f;
+        //        isReturn = false;
+        //    }
 
-            transform.localScale = scale;
-            pos.y = 4.5f - (scale.y / 2);
-            transform.position = pos;
+        //    transform.localScale = scale;
+        //    pos.y = 4.5f - (scale.y / 2);
+        //    transform.position = pos;
 
-            if(isCrush == false)
-            {
-                if(wall != null)
-                {
-                    wallPos = wall.transform.position;
-                    wallScale = wall.transform.localScale;
+        //    if(isCrush == false)
+        //    {
+        //        if(wall != null)
+        //        {
+        //            wallPos = wall.transform.position;
+        //            wallScale = wall.transform.localScale;
 
-                    if (pos.y - (scale.y / 2) < wallPos.y + (wallScale.y / 2))
-                    {
-                        wallPos.y = pos.y - (scale.y / 2) - (wallScale.y / 2);
-                        wall.transform.position = wallPos;
-                    }
-                }
-            }
-        }
+        //            if (pos.y - (scale.y / 2) < wallPos.y + (wallScale.y / 2))
+        //            {
+        //                wallPos.y = pos.y - (scale.y / 2) - (wallScale.y / 2);
+        //                wall.transform.position = wallPos;
+        //            }
+        //        }
+        //    }
+        //}
 
         if(pos.x <= -3.75 + (scale.x / 2))
         {
