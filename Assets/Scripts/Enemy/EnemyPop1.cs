@@ -14,8 +14,6 @@ public class EnemyPop1 : MonoBehaviour
 
     private String line;
 
-    private int listCount;
-
     private Vector3 pos;
 
     public GameObject enemy;
